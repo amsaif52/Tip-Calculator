@@ -41,13 +41,6 @@ export default class TipCalculator extends Component {
     this.setState(this.state);
   }
 
-  // handleTipPercent(tipPercent){
-  //   const tipArray = [0.15,0.18,0.20,0.25];
-  //   this.state.tip = tipArray[this.state.values.indexOf(tipPercent)];
-  //   this.setState(this.state);
-  //   console.log(this.state);
-  //   this.handleAmountChange(this.state.amount);
-  // }
   handleTipPercent(tipPercent){
       this.state.tip = tipPercent;
       this.setState(this.state);
@@ -67,20 +60,11 @@ export default class TipCalculator extends Component {
             onChangeText={this.handleAmountChange.bind(this)}
           />
         </View>
-        {/* <View> */}
-          {/* <SegmentedControlIOS
-            values={this.state.values}
-            selectedIndex={this.state.selectedIndex}
-            onValueChange={this.handleTipPercent.bind(this)}
-            onChange={(event) => {
-              this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-            }}
-             style={{margin:10,height: 50}}
-          /> */}
-          <SegmentControl segment={this.handleTipPercent.bind(this)}/>
-        {/* </View> */}
+
+        <SegmentControl segment={this.handleTipPercent.bind(this)}/>
+
         <SliderNew
-        changeSlider={this.sliderChange.bind(this)}
+          changeSlider={this.sliderChange.bind(this)}
           persons={this.state.person}/>
 
         <View style={styles.row}>
@@ -132,11 +116,6 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     flex: 2
   },
-  // slider: {
-  //   margin: 5,
-  //   height: 40,
-  //   flex: 2
-  // },
   label: {
     textAlign: 'right',
     margin: 10,
@@ -146,3 +125,30 @@ const styles = StyleSheet.create({
 
 });
 AppRegistry.registerComponent('TipCalculator', () => TipCalculator);
+
+// handleTipPercent(tipPercent){
+//   const tipArray = [0.15,0.18,0.20,0.25];
+//   this.state.tip = tipArray[this.state.values.indexOf(tipPercent)];
+//   this.setState(this.state);
+//   console.log(this.state);
+//   this.handleAmountChange(this.state.amount);
+// }
+
+{/* <View> */}
+  {/* <SegmentedControlIOS
+    values={this.state.values}
+    selectedIndex={this.state.selectedIndex}
+    onValueChange={this.handleTipPercent.bind(this)}
+    onChange={(event) => {
+      this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+    }}
+     style={{margin:10,height: 50}}
+  /> */}
+
+  {/* </View> */}
+
+  // slider: {
+  //   margin: 5,
+  //   height: 40,
+  //   flex: 2
+  // },
